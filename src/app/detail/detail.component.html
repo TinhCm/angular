@@ -4,5 +4,9 @@
     <h4>Name: {{user.name}}</h4>
     <h4>Age: {{user.age}}</h4>
     <h4>Description: {{user.description}}</h4>
+    <h4>Địa chỉ: </h4>
+    <div *ngFor="let addr of user.addr">
+      <li>Số {{addr.soNha}} - Đường {{addr.duong}} - Phường {{addr.phuong}} - Quận {{addr.quan}} -  Thành phố   {{addr.thanhPho}}</li>
+    </div>
   </div>
-</div>
+</div>  

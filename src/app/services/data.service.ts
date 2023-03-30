@@ -18,22 +18,19 @@ export class DataService {
         return this._http.get('http://localhost:3000/user');
     }
 
+    getdataUser(id:any) {
+        return this._http.get('http://localhost:3000/user/' + id);
+    }
+
     delete(id:any){
-        let del = this._http.delete('http://localhost:3000/user/' + id);
-        del.subscribe(res =>{
-           
-        });
+        return this._http.delete('http://localhost:3000/user/' + id)
     }
 
     add(user: any){
-        let add = this._http.post('http://localhost:3000/user/',user)
-        add.subscribe(res=>{
-           
-        })
+         return this._http.post('http://localhost:3000/user/',user)
     }
 
     edit(user: any, id: any){
-        let add = this._http.put('http://localhost:3000/user/' + id, user)
-        return add;
+        return this._http.put('http://localhost:3000/user/' + id, user)
     }
 }

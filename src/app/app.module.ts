@@ -23,7 +23,7 @@ const appRouter: Routes = [
         component: AboutComponent,
     },
     {
-        path: 'detail',
+        path: 'detail/:id',
         component: DetailComponent,
     },
     {
@@ -39,7 +39,7 @@ const appRouter: Routes = [
         component: HomeComponent,
     },
     {
-        path: 'edit-user',
+        path: 'edit-user/:id',
         component: EditUserComponent,
     },
     {

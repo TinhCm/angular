@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'app-detail',
@@ -7,13 +8,15 @@ import { DataService } from '../services/data.service';
     styleUrls: ['./detail.component.css'],
 })
 export class DetailComponent implements OnInit {
-    constructor(private _service: DataService) {}
+    constructor(private _service: DataService, private activatedRoute: ActivatedRoute, public _apiservie: DataService) {}
 
     user: any;
 
     ngOnInit() {
-        this._service._behaviorSubject.subscribe((data) => {
-            this.user = data;
+        this.activatedRoute.params.subscribe(params => { 
+            this._apiservie.getdataUser(params['id']).subscribe((res) => {
+                this.user = res;
+            });
         });
     }
 }
