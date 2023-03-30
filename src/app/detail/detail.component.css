@@ -1,0 +1,11 @@
+.detail{
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
+    border: 1px solid blue;
+}
+
+.user{
+    padding: 10px 40px;
+   align-items: center;
+}

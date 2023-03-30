@@ -1,0 +1,17 @@
+<h2>Edit User</h2>
+<div class="wrapper">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div *ngIf="user != null" class="form-group">
+            <label for="">Name: </label>
+            <input type="text" [(ngModel)]="user.name" name="name"/>
+
+            <label for="">Age: </label>
+            <input type="text" [(ngModel)]="user.age" name="age">
+
+            <label for="">Description: </label>
+            <input type="text" [(ngModel)]="user.description" name="description">
+        </div>
+
+        <button type="submit">Save</button>
+    </form>
+</div>

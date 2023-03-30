@@ -1,0 +1,32 @@
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        height: 30px;
+    }
+}
+.user{
+  padding: 10px 40px;
+  display: flex;
+  justify-content: center;
+  button{
+    display: block;
+    margin-left: 30px;
+    height: 30px;
+    width: 30px;
+    color: blue;
+    cursor: pointer;
+  }
+}
+
+.left-user{
+    width: 300px;
+}
+
+th{
+  width: 100px;
+}
+td{
+  width: 100px;
+}

@@ -1,0 +1,22 @@
+<div class="wrapper">
+    <nav>
+        <div class="nav-left">
+            <ul>
+                <li><a [routerLink]="['/home']">Home</a></li>
+                <li><a [routerLink]="['/list-user']">Users</a></li>
+                <li><a [routerLink]="['/about']">About</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Login
+        </div>
+    </nav>
+    <body class="body"> 
+        <router-outlet></router-outlet>
+    </body>
+    <footer>
+        <p>Thông tin liên hệ</p>
+        <p>About us</p>
+    </footer>
+</div>
