@@ -1,4 +1,4 @@
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -49,8 +49,24 @@ const appRouter: Routes = [
 ];
 
 @NgModule({
-    declarations: [AppComponent, ListUserComponent, DetailComponent, AboutComponent, ActionUserComponent, HomeComponent, EditUserComponent],
-    imports: [BrowserModule, AppRoutingModule, RouterModule.forRoot(appRouter), HttpClientModule, FormsModule, ReactiveFormsModule,NgxRerenderModule],
+    declarations: [
+        AppComponent,
+        ListUserComponent,
+        DetailComponent,
+        AboutComponent,
+        ActionUserComponent,
+        HomeComponent,
+        EditUserComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot(appRouter),
+        HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
+        NgxRerenderModule,
+    ],
     providers: [DataService],
     bootstrap: [AppComponent],
 })

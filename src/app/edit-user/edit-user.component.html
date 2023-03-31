@@ -1,17 +1,56 @@
 <h2>Edit User</h2>
-<div class="wrapper">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+<!-- <div class="wrapper">
+    <form #f="ngForm" (ngSubmit)="onSubmit()">
         <div *ngIf="user != null" class="form-group">
             <label for="">Name: </label>
-            <input type="text" [(ngModel)]="user.name" name="name"/>
+            <input type="text" [(ngModel)]="user.name" name="name" />
 
             <label for="">Age: </label>
-            <input type="text" [(ngModel)]="user.age" name="age">
+            <input type="text" [(ngModel)]="user.age" name="age" />
 
             <label for="">Description: </label>
-            <input type="text" [(ngModel)]="user.description" name="description">
+            <input type="text" [(ngModel)]="user.description" name="description" />
         </div>
 
         <button type="submit">Save</button>
     </form>
-</div>
+</div> -->
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <h3>User infomation:</h3>
+    <label>
+        <p>Name:</p>
+        <input type="text" formControlName="name" />
+    </label>
+    <label>
+        <p>Age:</p>
+        <input type="text" formControlName="age" />
+    </label>
+    <label>
+        <p>Decription:</p>
+        <input type="text" formControlName="decription" />
+    </label>
+
+    <h3>Address:</h3>
+
+    <ng-container formArrayName="address" *ngFor="let o of address.controls; let i = index">
+        <div [formGroupName]="i" class="addr">
+            <label>
+                <p>Phường:</p>
+                <input type="text" formControlName="phuong" />
+            </label>
+            <label>
+                <p>Quận:</p>
+                <input type="text" formControlName="quan" />
+            </label>
+            <label>
+                <p>Thành phố:</p>
+                <input type="text" formControlName="thanhPho" />
+            </label>
+            <button type="button" (click)="remove(i)"><i class="fa-solid fa-delete-left"></i></button>
+        </div>
+    </ng-container>
+    <button type="button" (click)="addNewAddr()"><i class="fa-solid fa-plus"></i></button>
+
+    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+</form>

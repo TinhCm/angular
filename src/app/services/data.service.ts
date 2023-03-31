@@ -13,24 +13,25 @@ export class DataService {
     }
 
     constructor(private _http: HttpClient) {}
-    
+
     getdata() {
         return this._http.get('http://localhost:3000/user');
     }
 
-    getdataUser(id:any) {
+    getdataUser(id: any) {
         return this._http.get('http://localhost:3000/user/' + id);
     }
 
-    delete(id:any){
-        return this._http.delete('http://localhost:3000/user/' + id)
+    delete(id: any) {
+        return this._http.delete('http://localhost:3000/user/' + id);
     }
 
-    add(user: any){
-         return this._http.post('http://localhost:3000/user/',user)
+    add(user: any) {
+        console.log('Du lieu post: ' + user);
+        return this._http.post('http://localhost:3000/user/', user);
     }
 
-    edit(user: any, id: any){
-        return this._http.put('http://localhost:3000/user/' + id, user)
+    edit(user: any, id: any) {
+        return this._http.put('http://localhost:3000/user/' + id, user);
     }
 }
