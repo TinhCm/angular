@@ -1,31 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-edit-user',
     templateUrl: './edit-user.component.html',
     styleUrls: ['./edit-user.component.scss'],
+    providers: [MessageService],
 })
-export class EditUserComponent {
+export class EditUserComponent implements OnInit {
     constructor(
         private _service: DataService,
         private activatedRoute: ActivatedRoute,
         public _apiservie: DataService,
         private fb: FormBuilder,
         private router: Router,
+        private messageService: MessageService,
     ) {}
 
     user: any;
-    getAddress: any;
 
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
             this._apiservie.getdataUser(params['id']).subscribe((res) => {
                 this.user = res;
                 this.setValue();
-                console.log('Danh sach: ' + this.user);
             });
         });
 
@@ -33,11 +34,11 @@ export class EditUserComponent {
     }
 
     submit(): void {
-        console.log(this.form.getRawValue());
-        console.log('KQ: ' + this.user.id);
-
         this._service.edit(this.form.getRawValue(), this.user.id).subscribe((res) => {
-            this.router.navigate(['/list-user']);
+            this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Save User Success' });
+            setTimeout(() => {
+                this.router.navigate(['/list-user']);
+            }, 1000);
         });
     }
 
@@ -48,7 +49,7 @@ export class EditUserComponent {
             name: [null],
             age: [null],
             decription: [null],
-            address: this.fb.array([this.addressForm()]),
+            address: this.fb.array([]),
         });
     }
 
@@ -73,12 +74,20 @@ export class EditUserComponent {
     }
 
     setValue() {
-        console.log(this.user.address);
-        this.form.setValue({
+        this.user.address.map((addr: any) => {
+            const addressArray = this.fb.group({
+                phuong: addr.phuong,
+                quan: addr.quan,
+                thanhPho: addr.thanhPho,
+            });
+
+            this.address.push(addressArray);
+        });
+
+        this.form.patchValue({
             name: this.user.name,
             age: this.user.age,
             decription: this.user.decription,
-            address: this.user.address,
         });
     }
 }

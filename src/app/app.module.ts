@@ -17,6 +17,12 @@ import { HomeComponent } from './home/home.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NgxRerenderModule } from 'ngx-rerender';
 
+import { ButtonModule } from 'primeng/button';
+import { TreeTableModule } from 'primeng/treetable';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const appRouter: Routes = [
     {
         path: 'about',
@@ -66,6 +72,11 @@ const appRouter: Routes = [
         FormsModule,
         ReactiveFormsModule,
         NgxRerenderModule,
+        ButtonModule,
+        TreeTableModule,
+        InputTextModule,
+        ToastModule,
+        BrowserAnimationsModule,
     ],
     providers: [DataService],
     bootstrap: [AppComponent],

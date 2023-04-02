@@ -1,34 +1,18 @@
 <h2>Edit User</h2>
-<!-- <div class="wrapper">
-    <form #f="ngForm" (ngSubmit)="onSubmit()">
-        <div *ngIf="user != null" class="form-group">
-            <label for="">Name: </label>
-            <input type="text" [(ngModel)]="user.name" name="name" />
-
-            <label for="">Age: </label>
-            <input type="text" [(ngModel)]="user.age" name="age" />
-
-            <label for="">Description: </label>
-            <input type="text" [(ngModel)]="user.description" name="description" />
-        </div>
-
-        <button type="submit">Save</button>
-    </form>
-</div> -->
 
 <form [formGroup]="form" (ngSubmit)="submit()">
     <h3>User infomation:</h3>
     <label>
         <p>Name:</p>
-        <input type="text" formControlName="name" />
+        <input pInputText type="text" formControlName="name" />
     </label>
     <label>
         <p>Age:</p>
-        <input type="text" formControlName="age" />
+        <input pInputText type="text" formControlName="age" />
     </label>
     <label>
         <p>Decription:</p>
-        <input type="text" formControlName="decription" />
+        <input pInputText type="text" formControlName="decription" />
     </label>
 
     <h3>Address:</h3>
@@ -36,21 +20,23 @@
     <ng-container formArrayName="address" *ngFor="let o of address.controls; let i = index">
         <div [formGroupName]="i" class="addr">
             <label>
-                <p>Phường:</p>
-                <input type="text" formControlName="phuong" />
+                <p>Phường (xã):</p>
+                <input pInputText type="text" formControlName="phuong" />
             </label>
             <label>
-                <p>Quận:</p>
-                <input type="text" formControlName="quan" />
+                <p>Quận (huyện):</p>
+                <input pInputText type="text" formControlName="quan" />
             </label>
             <label>
-                <p>Thành phố:</p>
-                <input type="text" formControlName="thanhPho" />
+                <p>Thành phố (tỉnh):</p>
+                <input pInputText type="text" formControlName="thanhPho" />
             </label>
-            <button type="button" (click)="remove(i)"><i class="fa-solid fa-delete-left"></i></button>
+            <p-button type="button" (click)="remove(i)" styleClass="btn-remove" icon="pi pi-trash"></p-button>
         </div>
     </ng-container>
-    <button type="button" (click)="addNewAddr()"><i class="fa-solid fa-plus"></i></button>
 
-    <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+    <p-button type="button" (click)="addNewAddr()" styleClass="btn-add" icon="pi pi-plus"></p-button>
+    <br />
+    <p-toast></p-toast>
+    <p-button type="submit" pRipple styleClass="btn-submit" label="Submit"></p-button>
 </form>

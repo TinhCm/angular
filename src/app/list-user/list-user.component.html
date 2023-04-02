@@ -1,20 +1,22 @@
 <nav>
     <h2>List Users</h2>
-    <button (click)="addUser()">
-        <i class="fa-solid fa-plus"></i>
-        Add
-    </button>
+    <p-button (click)="addUser()" styleClass="btn-add" label="Add" icon="pi pi-plus"></p-button>
 </nav>
+
+<div class="nav">
+    <h3 class="name">Name</h3>
+    <h3>Age</h3>
+</div>
 
 <div *ngFor="let user of newdata" class="list-user">
     <div class="user">
         <div class="left-user">
-            Name: {{ user.name }}
-            <br />
-            Age: {{ user.age }}
+            <p class="left-user_name">{{ user.name }}</p>
+            <p>{{ user.age }}</p>
         </div>
-        <button (click)="onClick(user)"><i class="fa-solid fa-info"></i></button>
-        <button (click)="delete(user)"><i class="fa-solid fa-trash"></i></button>
-        <button (click)="edit(user)"><i class="fa-solid fa-pen-to-square"></i></button>
+        <p-button (click)="onClick(user)" styleClass="button-edit" icon="pi pi-info"></p-button>
+        <p-toast></p-toast>
+        <p-button pRipple (click)="delete(user)" styleClass="button-edit" icon="pi pi-trash"></p-button>
+        <p-button (click)="edit(user)" styleClass="button-edit" icon="pi pi-user-edit"></p-button>
     </div>
 </div>

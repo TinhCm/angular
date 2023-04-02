@@ -31,3 +31,25 @@ button:last-child{
         display: inline-block;
     }
 }
+
+// custom styles for primeng
+:host {
+
+    ::ng-deep.btn-add{
+       
+        margin-top: 5px;
+    } 
+    ::ng-deep.btn-submit{
+        
+        margin-top: 10px;
+        margin-left: 200px;
+        span{
+            font-weight: 400;
+        }
+    }
+
+    ::ng-deep .btn-remove{
+        margin-bottom: 5px;
+        margin-left: 20px;
+    }
+}

@@ -1,32 +1,60 @@
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    button{
+    button {
         height: 30px;
     }
 }
-.user{
-  padding: 10px 40px;
-  display: flex;
-  justify-content: center;
-  button{
-    display: block;
-    margin-left: 30px;
-    height: 30px;
-    width: 30px;
-    color: blue;
-    cursor: pointer;
-  }
+.user {
+    padding: 10px 40px;
+    display: flex;
+    button {
+        display: block;
+        margin-left: 30px;
+        height: 30px;
+        width: 30px;
+        color: blue;
+        cursor: pointer;
+    }
 }
 
-.left-user{
+.left-user {
     width: 300px;
+    display: flex;
+    .left-user_name{
+        width: 200px;
+    }
 }
 
-th{
-  width: 100px;
+th {
+    width: 100px;
 }
-td{
-  width: 100px;
+td {
+    width: 100px;
+}
+
+
+// custom styles for primeng
+:host {
+    ::ng-deep .button-edit{
+      
+        margin-right: 40px;
+    
+    } 
+
+    ::ng-deep .btn-add{
+       
+        span{
+            font-weight: 400;
+        }
+    } 
+}
+
+.nav{
+    display: flex;
+    .name{
+        width: 200px;
+        margin-left: 40px;
+    }
 }

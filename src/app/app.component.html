@@ -2,14 +2,19 @@
     <nav>
         <div class="nav-left">
             <ul>
-                <li><a [routerLink]="['/home']">Home</a></li>
-                <li><a [routerLink]="['/list-user']">Users</a></li>
-                <li><a [routerLink]="['/about']">About</a></li>
+                <li>
+                    <a [routerLink]="['/home']"> <h4>Home</h4></a>
+                </li>
+                <li>
+                    <a [routerLink]="['/list-user']"> <h4>Users</h4></a>
+                </li>
+                <li>
+                    <a [routerLink]="['/about']"> <h4>About</h4></a>
+                </li>
             </ul>
         </div>
         <div class="nav-right">
-            <i class="fa-solid fa-right-to-bracket"></i>
-            Login
+            <p-button styleClass="btn-signin" label="Login" icon="pi pi-sign-in"></p-button>
         </div>
     </nav>
     <body class="body">
