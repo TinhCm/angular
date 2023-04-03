@@ -17,11 +17,16 @@ import { HomeComponent } from './home/home.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { NgxRerenderModule } from 'ngx-rerender';
 
+// Thư viện PrimeNg
 import { ButtonModule } from 'primeng/button';
 import { TreeTableModule } from 'primeng/treetable';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AutoFocusModule } from 'primeng/autofocus';
+import { TabMenuModule } from 'primeng/tabmenu';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 
 const appRouter: Routes = [
     {
@@ -77,6 +82,10 @@ const appRouter: Routes = [
         InputTextModule,
         ToastModule,
         BrowserAnimationsModule,
+        AutoFocusModule,
+        TabMenuModule,
+        BreadcrumbModule,
+        ConfirmDialogModule,
     ],
     providers: [DataService],
     bootstrap: [AppComponent],

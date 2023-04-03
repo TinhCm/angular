@@ -1,5 +1,8 @@
+<div class="card flex">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
 <nav>
-    <h2>List Users</h2>
     <p-button (click)="addUser()" styleClass="btn-add" label="Add" icon="pi pi-plus"></p-button>
 </nav>
 
@@ -17,6 +20,7 @@
         <p-button (click)="onClick(user)" styleClass="button-edit" icon="pi pi-info"></p-button>
         <p-toast></p-toast>
         <p-button pRipple (click)="delete(user)" styleClass="button-edit" icon="pi pi-trash"></p-button>
+        <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
         <p-button (click)="edit(user)" styleClass="button-edit" icon="pi pi-user-edit"></p-button>
     </div>
 </div>

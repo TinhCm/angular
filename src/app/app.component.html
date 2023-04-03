@@ -1,6 +1,6 @@
 <div class="wrapper">
     <nav>
-        <div class="nav-left">
+        <!-- <div class="nav-left">
             <ul>
                 <li>
                     <a [routerLink]="['/home']"> <h4>Home</h4></a>
@@ -12,7 +12,14 @@
                     <a [routerLink]="['/about']"> <h4>About</h4></a>
                 </li>
             </ul>
+        </div> -->
+
+        <div class="card">
+            <p-tabMenu [model]="items" [activeItem]="activeItem"></p-tabMenu>
         </div>
+
+        <i class="pi pi-bell text-3xl" pBadge value="2"></i>
+
         <div class="nav-right">
             <p-button styleClass="btn-signin" label="Login" icon="pi pi-sign-in"></p-button>
         </div>

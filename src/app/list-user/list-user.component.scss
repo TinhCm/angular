@@ -1,7 +1,5 @@
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+   text-align: right;
     button {
         height: 30px;
     }
@@ -57,4 +55,17 @@ td {
         width: 200px;
         margin-left: 40px;
     }
+    .age{
+        width: 200px;
+        margin-left: 40px;
+    }
+}
+
+.left-user_age{
+    width: 200px;
+    text-align: center;
+}
+
+.left-user_name{
+    width: 200px;
 }

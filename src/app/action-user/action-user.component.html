@@ -1,16 +1,18 @@
-<h2>Add User</h2>
+<div class="card flex">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+</div>
 <form [formGroup]="form" (ngSubmit)="submit()">
-    <h3>User infomation:</h3>
+    <h3>Infomation:</h3>
     <label>
-        <p>Name:</p>
-        <input type="text" pInputText formControlName="name" />
+        <h4>Name:</h4>
+        <input pAutoFocus [autofocus]="true" type="text" pInputText formControlName="name" />
     </label>
     <label>
-        <p>Age:</p>
+        <h4>Age:</h4>
         <input type="text" pInputText formControlName="age" />
     </label>
     <label>
-        <p>Decription:</p>
+        <h4>Decription:</h4>
         <input type="text" pInputText formControlName="decription" />
     </label>
 
@@ -19,15 +21,15 @@
     <ng-container formArrayName="address" *ngFor="let o of address.controls; let i = index">
         <div *ngIf="form" [formGroupName]="i" class="addr">
             <label>
-                <p>Phường (xã):</p>
+                <h4>Phường (xã):</h4>
                 <input type="text" pInputText formControlName="phuong" />
             </label>
             <label>
-                <p>Quận (huyện):</p>
+                <h4>Quận (huyện):</h4>
                 <input type="text" pInputText formControlName="quan" />
             </label>
             <label>
-                <p>Thành phố (tỉnh):</p>
+                <h4>Thành phố (tỉnh):</h4>
                 <input type="text" pInputText formControlName="thanhPho" />
             </label>
             <p-button type="button" (click)="remove(i)" styleClass="btn-remove" icon="pi pi-trash"></p-button>
@@ -35,6 +37,6 @@
     </ng-container>
     <p-button type="button" (click)="addNewAddr()" styleClass="btn-add" icon="pi pi-plus"></p-button>
     <br />
-    <p-toast></p-toast>
+    <p-toast styleClass="messageErr"></p-toast>
     <p-button type="submit" pRipple styleClass="btn-submit" label="Submit"></p-button>
 </form>

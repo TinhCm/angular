@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+import { MenuItem, MessageService } from 'primeng/api';
 
 @Component({
     selector: 'app-edit-user',
@@ -21,6 +21,9 @@ export class EditUserComponent implements OnInit {
     ) {}
 
     user: any;
+    items: MenuItem[] = [];
+
+    home!: MenuItem;
 
     ngOnInit() {
         this.activatedRoute.params.subscribe((params) => {
@@ -31,6 +34,10 @@ export class EditUserComponent implements OnInit {
         });
 
         this.createForm();
+
+        this.items = [{ label: 'List Users', routerLink: '/list-user' }, { label: 'Edit User' }];
+
+        this.home = { icon: 'pi pi-home', routerLink: '/' };
     }
 
     submit(): void {

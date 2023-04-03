@@ -1,12 +1,25 @@
-<h2>Detail User</h2>
-<div class="detail">
+<div class="card flex">
+    <p-breadcrumb class="max-w-full" [model]="items" [home]="home"></p-breadcrumb>
+</div>
+
+<div>
     <div *ngIf="user != null" class="user">
-        <h4>Name: {{ user.name }}</h4>
-        <h4>Age: {{ user.age }}</h4>
-        <h4>Description: {{ user.decription }}</h4>
-        <h4>Địa chỉ:</h4>
-        <div *ngFor="let addr of user.address">
-            <li>Phường {{ addr.phuong }} - Quận {{ addr.quan }} - Thành phố {{ addr.thanhPho }}</li>
-        </div>
+        <h3>Name:</h3>
+        <p>{{ user.name }}</p>
+        <br />
+        <h3>Age:</h3>
+        <p>{{ user.age }}</p>
+        <br />
+        <h3>Description:</h3>
+        <p>{{ user.decription }}</p>
+        <br />
+        <h3>Địa chỉ:</h3>
+        <ul *ngFor="let i of user.address">
+            <li>
+                <p>Phường: {{ i.phuong }}</p>
+                <p>- Quận {{ i.quan }}</p>
+                <p>- Thành phố {{ i.thanhPho }}</p>
+            </li>
+        </ul>
     </div>
 </div>

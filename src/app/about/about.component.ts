@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+    selector: 'app-about',
+    templateUrl: './about.component.html',
+    styleUrls: ['./about.component.css'],
 })
 export class AboutComponent implements OnInit {
+    items: MenuItem[] = [];
+    home!: MenuItem;
+    constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+    ngOnInit() {
+        this.items = [{ label: 'About' }];
+        this.home = { icon: 'pi pi-home', routerLink: '/' };
+    }
 }
