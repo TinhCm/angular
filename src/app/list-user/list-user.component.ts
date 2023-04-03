@@ -41,21 +41,23 @@ export class ListUserComponent implements OnInit {
     }
 
     delete(item: any): void {
-        // this._service.delete(item.id).subscribe((res) => {
-        //     this._apiservie.getdata().subscribe((res) => {
-        //         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Delete User Success' });
-        //         setTimeout(() => {
-        //             this.newdata = res;
-        //         }, 1000);
-        //     });
-        // });
-
         this.confirmationService.confirm({
             message: 'Do you want to delete this record?',
             header: 'Delete Confirmation',
             icon: 'pi pi-info-circle',
             accept: () => {
-                this.messageService.add({ severity: 'info', summary: 'Confirmed', detail: 'Record deleted' });
+                this._service.delete(item.id).subscribe((res) => {
+                    this._apiservie.getdata().subscribe((res) => {
+                        this.messageService.add({
+                            severity: 'info',
+                            summary: 'Confirmed',
+                            detail: 'Delete User Success',
+                        });
+                        setTimeout(() => {
+                            this.newdata = res;
+                        }, 1000);
+                    });
+                });
             },
             reject: (type: any) => {
                 switch (type) {
